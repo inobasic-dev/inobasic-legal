@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>プライバシーポリシー｜Rodri TikTok 自動投稿</title>
+  <meta name="description" content="Rodri TikTok 自動投稿 - 店長動画を TikTok へ自動配信するサーバーサイドアプリのプライバシーポリシー">
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    * { box-sizing: border-box; }
+    body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Mincho ProN",
+        "Yu Mincho", "Noto Serif JP", "Hiragino Sans",
+        "Noto Sans JP", sans-serif;
+      color: #2D3142;
+      line-height: 1.8;
+      background: #FAF6EE;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 0 0 12px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #2D3142;
+      font-weight: 400;
+    }
+    h2 {
+      font-size: 16px;
+      margin: 32px 0 8px;
+      color: #6B6F7F;
+      font-weight: 500;
+    }
+    p, li {
+      font-size: 14px;
+    }
+    ul {
+      padding-left: 22px;
+    }
+    li {
+      margin: 4px 0;
+    }
+    .meta {
+      font-size: 12px;
+      color: #6B6F7F;
+      margin-bottom: 24px;
+    }
+    .summary {
+      padding: 14px 16px;
+      background: #EFE5C8;
+      border-left: 3px solid #B08D57;
+      border-radius: 4px;
+      font-size: 13px;
+      margin: 16px 0 28px;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #DDD4C2;
+      margin: 32px 0;
+    }
+    strong { color: #2D3142; }
+    footer {
+      margin-top: 48px;
+      font-size: 12px;
+      color: #6B6F7F;
+      text-align: center;
+    }
+    a { color: #2D3142; }
+  </style>
+</head>
+<body>
+  <h1>Rodri TikTok 自動投稿 プライバシーポリシー</h1>
+  <p class="meta">最終更新日: 2026年5月28日<br>施行日: 2026年5月28日</p>
+
+  <div class="summary">
+    本サービス（以下「本アプリ」といいます）は、福岡市中央区の日本酒バー「日本酒の学校 福岡赤坂本店」店長ロドリの紹介動画を、当社のサーバーから TikTok（@rodri_loves_sake アカウント）へ自動投稿するための<strong>内部運用ツール</strong>です。<strong>本アプリは一般エンドユーザー向けの公開アプリではなく、利用者は当社運営者および提携店舗の関係者に限定されます。</strong>本アプリは Google Drive にアップロードされた動画ファイルとそのファイル名、TikTok アカウントへの投稿に必要なアクセストークン、および AI による紹介文生成結果のみを取り扱います。
+  </div>
+
+  <p>本アプリは、INOBASIC, K.K.（以下「当社」といいます）が提供します。本アプリの運用にあたり、お客様の個人情報・利用データの取り扱いについて以下のとおり定めます。</p>
+
+  <h2>1. 収集する情報と利用目的</h2>
+  <p>本アプリは、エンドユーザーから直接情報を収集するインターフェースを持ちません。本アプリが当社サーバー上に保管する情報は以下のみです。</p>
+  <ul>
+    <li><strong>動画ファイル（一時保管）</strong>: 提携店舗の店長が Google Drive にアップロードした動画ファイル。TikTok への投稿に必要な間のみ当社サーバーに一時ダウンロードし、投稿完了後に即時削除します</li>
+    <li><strong>動画ファイル名</strong>: ファイル名から紹介対象の銘柄名を抽出し、AI 生成キャプションのプロンプトとして利用します</li>
+    <li><strong>TikTok アクセストークン / リフレッシュトークン</strong>: TikTok Content Posting API への投稿に必要な認証情報。Laravel フレームワークの暗号化機能（アプリケーションレベル暗号化）を用いてデータベースに保管します</li>
+    <li><strong>投稿メタデータ</strong>: TikTok 投稿後に発行される投稿 ID、投稿時刻、投稿ステータス（成功・失敗・リトライ等）</li>
+    <li><strong>運用ログ</strong>: バッチ実行ログ、エラーメッセージ、リトライ回数等。トラブルシュート目的で 30 日間保管後に自動削除します</li>
+  </ul>
+  <p>上記情報は、TikTok への自動投稿という単一の目的のみに利用し、それ以外の用途には使用しません。</p>
+
+  <h2>2. 通信について</h2>
+  <p>本アプリは、サーバーサイドのバッチ処理として動作し、以下の外部サービスと通信します。</p>
+  <ul>
+    <li><strong>TikTok Content Posting API</strong>: 動画ファイルおよびキャプションを TikTok プラットフォーム（運営: TikTok Pte. Ltd. / ByteDance Ltd.）に送信し、投稿します</li>
+    <li><strong>Google Drive API</strong>: 提携店舗がアップロードした動画ファイルを取得します</li>
+    <li><strong>Google Gemini API</strong>: 紹介する銘柄名から TikTok キャプションの冒頭文を AI で自動生成します。生成のために送信するのは動画ファイル名から抽出した銘柄名のみで、動画ファイル本体や個人情報は送信しません</li>
+  </ul>
+  <p>これらの通信は、当社サーバーから各 API サービスに対して行われ、エンドユーザーの端末との直接通信は発生しません。</p>
+
+  <h2>3. 端末の機能の利用</h2>
+  <p>本アプリはサーバーサイドで動作するバッチ処理アプリケーションであり、エンドユーザーの端末機能（カメラ、マイク、位置情報、連絡先、写真、ヘルスケアデータ等）は一切利用しません。エンドユーザー向けのモバイルアプリ・Web アプリは存在しません。</p>
+
+  <h2>4. 第三者提供・サブプロセッサ</h2>
+  <p>本アプリの運用にあたり、以下の第三者サービス（サブプロセッサ）を利用します。これらへのデータ送信は、本アプリの目的達成のために必要最小限の範囲で行います。</p>
+  <ul>
+    <li><strong>TikTok Pte. Ltd. / ByteDance Ltd.</strong>: 動画投稿の宛先。送信するデータは動画ファイル、キャプション、投稿オプション、認証トークン</li>
+    <li><strong>Google LLC</strong>: 動画ファイルの保管・取得元（Google Drive）および AI キャプション生成エンジン（Gemini API）。Google Drive には提携店舗が動画ファイル本体およびファイル名を保管し、本アプリは Google Drive API を介して当該ファイルを取得します。Gemini API には動画ファイル名から抽出した銘柄名のテキストのみを送信し、動画ファイル本体や個人情報は送信しません</li>
+  </ul>
+  <p>各サブプロセッサのプライバシーポリシーは、各社の公式サイトをご確認ください。当社は、上記以外の第三者へお客様の情報を提供することはありません。</p>
+
+  <h2>5. 広告・解析ツール</h2>
+  <p>本アプリには、本ポリシーの最終更新日時点で、広告および第三者の解析ツールは導入されていません。本アプリは TikTok 投稿のためのサーバーサイドツールであり、エンドユーザーの行動追跡・トラッキングを行うことはありません。</p>
+
+  <h2>6. データの保管期間</h2>
+  <ul>
+    <li><strong>動画ファイル</strong>: TikTok 投稿完了後、当社サーバー上から即時削除します</li>
+    <li><strong>TikTok アクセストークン / リフレッシュトークン</strong>: 提携店舗による再 authorize（再認可）まで暗号化された状態でデータベースに保管します。提携店舗が連携を解除した場合、すみやかに削除します</li>
+    <li><strong>投稿メタデータ</strong>: 投稿の重複防止および運用記録のため、データベースに継続的に保管します</li>
+    <li><strong>運用ログ</strong>: 30 日間保管後、自動的に削除されます</li>
+  </ul>
+
+  <h2>7. データ削除請求</h2>
+  <p>提携店舗の関係者は、当社に対して保管中のデータの削除を請求することができます。削除請求があった場合、当社は請求受領後 7 日以内に対応し、削除完了をご連絡します。削除請求は本ポリシー末尾のお問い合わせ先までご連絡ください。</p>
+  <p>TikTok 上に投稿された動画自体の削除については、TikTok アカウント保有者（提携店舗）が直接 TikTok アプリ・サービス上で行ってください。当社は TikTok 投稿済みコンテンツの削除権限を行使する手段を有しますが、コンテンツ削除の最終的な操作・確認は TikTok アカウント保有者の責任で行うものとします。</p>
+
+  <h2>8. お子様の利用について</h2>
+  <p>本アプリは内部運用ツールであり、エンドユーザー向けの提供は行いません。13 歳未満のお子様から意図的に個人情報を収集することはありません。</p>
+
+  <h2>9. GDPR・CCPA への対応</h2>
+  <p>当社は、欧州一般データ保護規則（GDPR）、カリフォルニア州消費者プライバシー法（CCPA）その他の適用法令の範囲で、お客様の権利（アクセス、訂正、削除、データポータビリティ等）に対応します。本アプリは特定の提携店舗関係者のみが利用するため、対象データは限定的ですが、関係者からの権利行使請求にはすみやかに対応します。</p>
+
+  <h2>10. セキュリティ</h2>
+  <p>当社は、本アプリが取り扱うデータ（特に TikTok アクセストークン）を保護するため、以下のセキュリティ対策を講じています。</p>
+  <ul>
+    <li>アクセストークン・リフレッシュトークンはアプリケーションレベルで暗号化してデータベースに保管</li>
+    <li>サーバー OS・ミドルウェア・依存ライブラリの定期的なセキュリティアップデート</li>
+    <li>運用ログにおいて、トークン・認証情報・URL 内のクエリ文字列を出力しないマスキング処理</li>
+    <li>本アプリのバックエンドコードへのアクセス権限を当社の運営担当者に限定</li>
+  </ul>
+
+  <h2>11. 投稿コンテンツに関する責任</h2>
+  <p>TikTok に投稿される動画コンテンツ、キャプション、ハッシュタグの内容、適法性、著作権、TikTok コミュニティガイドラインへの適合性は、提携店舗（コンテンツの提供元）の責任に帰属します。当社は、本アプリを通じて投稿された個別のコンテンツに関する一切の責任を負いません。</p>
+
+  <h2>12. プライバシーポリシーの変更</h2>
+  <p>本ポリシーの内容は、必要に応じて変更されることがあります。重要な変更がある場合は、本ページにて告知し、変更内容を明示します。重大な変更（取り扱いデータの種類の追加、第三者提供範囲の拡大等）の場合は、提携店舗への事前通知および合意を取得します。</p>
+
+  <h2>13. 準拠法</h2>
+  <p>本ポリシーは日本法に準拠します。</p>
+
+  <h2>14. お問い合わせ</h2>
+  <p>本ポリシーに関するお問い合わせは、下記までご連絡ください。</p>
+  <ul>
+    <li>提供者: INOBASIC, K.K.（株式会社InoBasic）</li>
+    <li>所在地: 〒810-0073 福岡県福岡市中央区舞鶴2-2-7</li>
+    <li>お問い合わせ先: <a href="mailto:jsso_contact@inobasic.tech">jsso_contact@inobasic.tech</a></li>
+  </ul>
+
+  <hr>
+  <p style="font-size: 12px; color: #6B6F7F; text-align: center; margin: 16px 0;">
+    関連: <a href="./terms.html">利用規約</a>
+  </p>
+
+  <hr>
+  <footer>© 2026 INOBASIC, K.K. All rights reserved.</footer>
+</body>
+</html>

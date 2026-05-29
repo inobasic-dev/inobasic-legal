@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>利用規約｜Rodri TikTok 自動投稿</title>
+  <meta name="description" content="Rodri TikTok 自動投稿 - 店長動画を TikTok へ自動配信するサーバーサイドアプリの利用規約">
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    * { box-sizing: border-box; }
+    body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Mincho ProN",
+        "Yu Mincho", "Noto Serif JP", "Hiragino Sans",
+        "Noto Sans JP", sans-serif;
+      color: #2D3142;
+      line-height: 1.8;
+      background: #FAF6EE;
+    }
+    h1 {
+      font-size: 22px;
+      margin: 0 0 12px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #2D3142;
+      font-weight: 400;
+    }
+    h2 {
+      font-size: 16px;
+      margin: 32px 0 8px;
+      color: #6B6F7F;
+      font-weight: 500;
+    }
+    p, li {
+      font-size: 14px;
+    }
+    ul {
+      padding-left: 22px;
+    }
+    li {
+      margin: 4px 0;
+    }
+    .meta {
+      font-size: 12px;
+      color: #6B6F7F;
+      margin-bottom: 24px;
+    }
+    .summary {
+      padding: 14px 16px;
+      background: #EFE5C8;
+      border-left: 3px solid #B08D57;
+      border-radius: 4px;
+      font-size: 13px;
+      margin: 16px 0 28px;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #DDD4C2;
+      margin: 32px 0;
+    }
+    strong { color: #2D3142; }
+    footer {
+      margin-top: 48px;
+      font-size: 12px;
+      color: #6B6F7F;
+      text-align: center;
+    }
+    a { color: #2D3142; }
+  </style>
+</head>
+<body>
+  <h1>Rodri TikTok 自動投稿 利用規約</h1>
+  <p class="meta">最終更新日: 2026年5月28日<br>施行日: 2026年5月28日</p>
+
+  <div class="summary">
+    本サービス（以下「本アプリ」といいます）は、INOBASIC, K.K.（以下「当社」といいます）が、福岡市中央区の日本酒バー「日本酒の学校 福岡赤坂本店」店長ロドリの紹介動画を TikTok（@rodri_loves_sake アカウント）へ自動投稿することを目的とした<strong>内部運用ツール</strong>です。本アプリは一般エンドユーザー向けの公開アプリではなく、利用者は当社運営者および提携店舗の関係者に限定されます。
+  </div>
+
+  <h2>1. 適用範囲</h2>
+  <p>本規約は、当社が運営する本アプリの利用に関し、当社と利用者との間の権利義務関係を定めるものです。本アプリを利用するすべての者は、本規約に同意したものとみなします。</p>
+
+  <h2>2. 利用者の範囲</h2>
+  <p>本アプリの利用者は以下に限定されます。本アプリは一般エンドユーザーへの提供を目的としていません。</p>
+  <ul>
+    <li>当社の運営担当者</li>
+    <li>提携店舗「日本酒の学校 福岡赤坂本店」の店長およびその指定する関係者</li>
+  </ul>
+
+  <h2>3. アプリの目的および機能</h2>
+  <p>本アプリは、以下の機能を提供します。</p>
+  <ul>
+    <li>提携店舗の店長が Google Drive にアップロードした紹介動画を、定期実行のバッチ処理により自動取得する</li>
+    <li>動画ファイル名に含まれる銘柄名を抽出し、AI（Google Gemini API）を用いてキャプション冒頭文を自動生成する</li>
+    <li>動画と生成キャプションを、TikTok Content Posting API を介して提携店舗指定の TikTok アカウントへ自動投稿する</li>
+    <li>投稿の成功・失敗・リトライ等のステータスを記録し、運用通知を行う</li>
+  </ul>
+
+  <h2>4. 投稿コンテンツに関する責任</h2>
+  <p>TikTok に投稿される動画コンテンツ、キャプション、ハッシュタグの内容、適法性、著作権、TikTok のコミュニティガイドラインへの適合性は、提携店舗（コンテンツの提供元）の責任に帰属します。当社は、本アプリを通じて投稿された個別のコンテンツに関する一切の責任を負いません。</p>
+  <p>提携店舗は、本アプリを用いて投稿するコンテンツに関し、以下を保証するものとします。</p>
+  <ul>
+    <li>提携店舗自身が正当な著作権を有していること、または第三者から正当な利用許諾を得ていること</li>
+    <li>TikTok のコミュニティガイドライン、利用規約、その他適用される法令に違反しないこと</li>
+    <li>第三者の権利（プライバシー権、肖像権、商標権等）を侵害しないこと</li>
+  </ul>
+
+  <h2>5. 禁止事項</h2>
+  <p>利用者は、本アプリの利用にあたり、以下の行為を行ってはなりません。</p>
+  <ul>
+    <li>本アプリを用いて、TikTok のコミュニティガイドラインに違反するコンテンツを投稿すること</li>
+    <li>第三者の著作権、商標権、プライバシー権、肖像権その他の権利を侵害するコンテンツを投稿すること</li>
+    <li>虚偽の情報、誤解を招く情報、差別的・暴力的・性的表現を含むコンテンツを投稿すること</li>
+    <li>本アプリのアクセストークン、API キー、認証情報を第三者に開示・共有すること</li>
+    <li>本アプリのソースコード、設定情報、ログ等を当社の許可なく第三者に開示すること</li>
+    <li>本アプリに対する不正アクセス、リバースエンジニアリング、改ざんを試みること</li>
+    <li>本アプリを利用して、当社、TikTok 社、Google 社、その他第三者の利益を不当に害する行為</li>
+    <li>その他、法令または公序良俗に反する行為</li>
+  </ul>
+
+  <h2>6. 第三者サービスとの関係</h2>
+  <p>本アプリは、以下の第三者サービスを利用します。利用者は、各サービスの利用規約・プライバシーポリシーに従う必要があります。</p>
+  <ul>
+    <li>TikTok（TikTok Pte. Ltd. / ByteDance Ltd.）</li>
+    <li>Google Drive、Google Gemini API（Google LLC）</li>
+  </ul>
+  <p>第三者サービスの仕様変更、サービス停止、利用規約変更等により本アプリの機能が制限される場合がありますが、当社はこれによる影響について責任を負いません。</p>
+
+  <h2>7. サービスの中断・変更・終了</h2>
+  <p>当社は、以下の場合、利用者への事前通知なしに本アプリの全部または一部の提供を中断、変更、終了することができます。</p>
+  <ul>
+    <li>システムの保守・点検・更新を行う場合</li>
+    <li>火災、停電、天災等の不可抗力により本アプリの提供が困難になった場合</li>
+    <li>第三者サービス（TikTok API、Google API 等）の仕様変更により本アプリの継続が困難になった場合</li>
+    <li>その他、当社が必要と判断した場合</li>
+  </ul>
+
+  <h2>8. 免責事項</h2>
+  <p>当社は、本アプリの利用に関連して利用者に生じた損害について、当社の故意または重過失による場合を除き、一切の責任を負いません。これには以下が含まれます。</p>
+  <ul>
+    <li>本アプリの不具合、エラー、中断、停止により投稿が行われなかった、または遅延した場合の損害</li>
+    <li>TikTok アカウントの BAN、シャドウバン、リーチ低下等、TikTok 側の判断により生じた不利益</li>
+    <li>AI が生成したキャプションの内容に起因する誤解、評判低下、その他の不利益</li>
+    <li>第三者サービスの障害・仕様変更により本アプリが機能しないことによる損害</li>
+  </ul>
+
+  <h2>9. 知的財産権</h2>
+  <p>本アプリのソースコード、デザイン、テキスト、設定、その他の構成要素の著作権その他の知的財産権は、当社または正当な権利者に帰属します。利用者は、本アプリの提供する機能の範囲内でのみ本アプリを利用することができます。</p>
+  <p>提携店舗が本アプリを通じて投稿するコンテンツの著作権は、提携店舗または正当な権利者に帰属します。</p>
+
+  <h2>10. 個人情報の取り扱い</h2>
+  <p>本アプリにおける個人情報の取り扱いについては、別途定める「<a href="./index.html">プライバシーポリシー</a>」によるものとします。</p>
+
+  <h2>11. 規約の変更</h2>
+  <p>当社は、必要に応じて本規約を変更することができます。重要な変更がある場合は、本ページにて告知し、変更内容を明示します。利用者は変更後の規約に従うものとし、変更に同意しない場合は本アプリの利用を停止できます。</p>
+
+  <h2>12. 準拠法・管轄裁判所</h2>
+  <p>本規約は日本法に準拠し、解釈されるものとします。本アプリに関連して生じた紛争については、福岡地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+
+  <h2>13. お問い合わせ</h2>
+  <p>本規約に関するお問い合わせは、下記までご連絡ください。</p>
+  <ul>
+    <li>提供者: INOBASIC, K.K.（株式会社InoBasic）</li>
+    <li>所在地: 〒810-0073 福岡県福岡市中央区舞鶴2-2-7</li>
+    <li>お問い合わせ先: <a href="mailto:jsso_contact@inobasic.tech">jsso_contact@inobasic.tech</a></li>
+  </ul>
+
+  <hr>
+  <p style="font-size: 12px; color: #6B6F7F; text-align: center; margin: 16px 0;">
+    関連: <a href="./index.html">プライバシーポリシー</a>
+  </p>
+
+  <hr>
+  <footer>© 2026 INOBASIC, K.K. All rights reserved.</footer>
+</body>
+</html>
